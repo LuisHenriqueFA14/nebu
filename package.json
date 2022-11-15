@@ -1,0 +1,13 @@
+{
+  "name": "nebu",
+  "version": "1.0.0",
+  "description": "Aplciativo para publicação de projetos.",
+  "main": "index.js",
+  "repository": "git@github.com:LuisHenriqueFA14/nebu.git",
+  "author": "Luís Henrique",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
