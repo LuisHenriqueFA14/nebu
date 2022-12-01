@@ -2,8 +2,11 @@ import { handler as cadasterFunction } from "../functions/cadaster/cadaster";
 import { prisma } from "../prisma/prismaClient";
 
 describe('Cadaster function', () => {
-	it("should be able to create a new user.", async () => {
+	beforeAll(async () => {
 		await prisma.user.deleteMany();
+	});
+
+	it("should be able to create a new user.", async () => {
 
 		const response = await cadasterFunction({
 			body: JSON.stringify({
