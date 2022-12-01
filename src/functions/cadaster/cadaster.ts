@@ -17,4 +17,4 @@ const handler = async (event: any) => {
 	return await createService.execute({ username, name, email, password });
 }
 
-module.exports = { handler };
+export { handler };
