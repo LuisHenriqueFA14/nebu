@@ -12,9 +12,9 @@ const handler = async (event: any) => {
 		}
 	}
 
-	const createService = new CadasterService();
+	const cadasterService = new CadasterService();
 
-	return await createService.execute({ username, name, email, password });
+	return await cadasterService.execute({ username, name, email, password });
 }
 
 export { handler };
