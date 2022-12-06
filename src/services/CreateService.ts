@@ -24,6 +24,10 @@ class CreateService {
 			}
 		});
 
+		if(!user) {
+			return createError("You are not logged in.");
+		}
+
 		const projectAlreadyExists = await prisma.project.findFirst({
 			where: {
 				path: `${user.username}/${project_params.title}`,

@@ -24,6 +24,20 @@ class ChangeService {
 
 		const id = getIdFromToken(token);
 
+		if(!id) {
+			return createError("You are not logged in.");
+		}
+
+		const user = await prisma.user.findUnique({
+			where: {
+				id,
+			}
+		});
+
+		if(!user) {
+			return createError("You are not logged in.");
+		}
+
 		const updateUser = await prisma.user.update({
 			where: {
 				id
