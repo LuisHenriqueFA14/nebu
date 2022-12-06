@@ -1,6 +1,6 @@
-import {prisma} from "../prisma/prismaClient";
-import {createError} from "../utils/createError";
-import {getIdFromToken} from "../utils/getIdFromToken";
+import { prisma } from "../prisma/prismaClient";
+import { createError } from "../utils/createError";
+import { getIdFromToken } from "../utils/getIdFromToken";
 
 interface UserAlterations {
 	username?: string;
