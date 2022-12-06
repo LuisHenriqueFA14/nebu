@@ -4,13 +4,11 @@ import { prisma } from "../prisma/prismaClient";
 
 describe('Login function', () => {
 	beforeAll(async () => {
-		await prisma.user.deleteMany();
-
 		await cadasterFunction({
 			body: JSON.stringify({
-				username: "test",
-				name: "Test Test",
-				email: "test@gmail.com",
+				username: "login",
+				name: "Login",
+				email: "login@gmail.com",
 				password: "abc123"
 			})
 		});
@@ -19,7 +17,7 @@ describe('Login function', () => {
 	it("should be able to login an user using username.", async () => {
 		const response = await loginFunction({
 			body: JSON.stringify({
-				username: "test",
+				username: "login",
 				password: "abc123"
 			}),
 		});
@@ -30,7 +28,7 @@ describe('Login function', () => {
 	it("should be able to login an user using email.", async () => {
 		const response = await loginFunction({
 			body: JSON.stringify({
-				email: "test@gmail.com",
+				email: "login@gmail.com",
 				password: "abc123"
 			}),
 		});

@@ -10,9 +10,9 @@ describe('Cadaster function', () => {
 
 		const response = await cadasterFunction({
 			body: JSON.stringify({
-				username: "test",
-				name: "Test Test",
-				email: "test@gmail.com",
+				username: "cadaster",
+				name: "Cadaster",
+				email: "cadaster@gmail.com",
 				password: "abc123"
 			})
 		});
@@ -23,9 +23,9 @@ describe('Cadaster function', () => {
 	it("should not be able to create a new user with an used username.", async () => {
 		const response = await cadasterFunction({
 			body: JSON.stringify({
-				username: "test",
-				name: "Test Test",
-				email: "test2@gmail.com",
+				username: "cadaster",
+				name: "Cadaster",
+				email: "cadaster2@gmail.com",
 				password: "abc123"
 			})
 		});
@@ -36,9 +36,9 @@ describe('Cadaster function', () => {
 	it("should not be able to create a new user with an used email.", async () => {
 		const response = await cadasterFunction({
 			body: JSON.stringify({
-				username: "test2",
-				name: "Test Test",
-				email: "test@gmail.com",
+				username: "cadaster2",
+				name: "Cadaster",
+				email: "cadaster@gmail.com",
 				password: "abc123"
 			})
 		});

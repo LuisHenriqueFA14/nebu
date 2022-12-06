@@ -11,16 +11,16 @@ describe('Create function', () => {
 
 		await cadasterFunction({
 			body: JSON.stringify({
-				username: "testt",
-				name: "Test Test",
-				email: "testt@gmail.com",
+				username: "create",
+				name: "Create",
+				email: "create@gmail.com",
 				password: "abc123"
 			})
 		});
 
 		token = JSON.parse((await loginFunction({
 			body: JSON.stringify({
-				username: "testt",
+				username: "create",
 				password: "abc123",
 			})
 		})).body).token;

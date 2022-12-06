@@ -9,16 +9,16 @@ describe('Change function', () => {
 	beforeAll(async () => {
 		await cadasterFunction({
 			body: JSON.stringify({
-				username: "testt",
-				name: "Test Test",
-				email: "testt@gmail.com",
+				username: "change",
+				name: "Change",
+				email: "change@gmail.com",
 				password: "abc123"
 			})
 		});
 
 		token = JSON.parse((await loginFunction({
 			body: JSON.stringify({
-				username: "testt",
+				username: "change",
 				password: "abc123",
 			})
 		})).body).token;
@@ -27,21 +27,21 @@ describe('Change function', () => {
 	it('should not be able to change the username of the user without a token.', async () => {
 		const response = await changeFunction({
 			body: JSON.stringify({
-				username: '__test',
+				username: '__change',
 			}),
 			headers: {
-				authorization: `Bearer ${token}`,
+				authorization: ``,
 			}
 		});
 
-		expect(response.statusCode).toBe(200);
+		expect(response.statusCode).toBe(400);
 	});
 
 
 	it('should be able to change the username of the user.', async () => {
 		const response = await changeFunction({
 			body: JSON.stringify({
-				username: '__test',
+				username: '__change',
 			}),
 			headers: {
 				authorization: `Bearer ${token}`,
