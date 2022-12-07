@@ -41,7 +41,7 @@ class ChangeProjectService {
 			}
 		}
 
-		const project = await prisma.project.findUnique({
+		const project = await prisma.project.findFirst({
 			where: {
 				id: project_alterations.id
 			}
@@ -63,7 +63,7 @@ class ChangeProjectService {
 
 		const updateProject = await prisma.project.update({
 			where: {
-				id: project_alterations.id
+				path: `${user.username}/${project.title}`
 			},
 			data: {
 				path,
