@@ -50,14 +50,21 @@ class CreateService {
 			}
 		});
 
+		let projectsList = user.projects;
+		projectsList.push(project.id);
+
 		const addProjectToUser = await prisma.user.update({
 			where: {
 				id: user.id,
 			},
 			data: {
-				projects: user.projects.push(project.id),
+				projects: projectsList
 			}
-		})
+		});
+
+		if(!addProjectToUser) {
+			return createError("Could not create the project.");
+		}
 
 		return {
 			statusCode: 200,
