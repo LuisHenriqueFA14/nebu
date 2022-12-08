@@ -50,6 +50,15 @@ class CreateService {
 			}
 		});
 
+		const addProjectToUser = await prisma.user.update({
+			where: {
+				id: user.id,
+			},
+			data: {
+				projects: user.projects.push(project.id),
+			}
+		})
+
 		return {
 			statusCode: 200,
 			body: JSON.stringify({
