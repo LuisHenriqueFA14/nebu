@@ -33,7 +33,7 @@ describe('Change_project function', () => {
 			headers: {
 				authorization: `Bearer ${token}`
 			}
-		})).body).id;
+		})).body).project_id;
 
 		await createFunction({
 			body: JSON.stringify({
