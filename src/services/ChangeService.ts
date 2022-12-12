@@ -51,6 +51,25 @@ class ChangeService {
 			return createError("User could not be updated.");
 		}
 
+		if(user_alterations.username) {
+			updateUser.projects.forEach(async (id) => {
+				const project = await prisma.project.findFirst({
+					where: {
+						id,
+					}
+				});
+				
+				await prisma.project.update({
+					where: {
+						id
+					},
+					data: {
+						path: `${updateUser.username}/${project.title}`,
+					}
+				})
+			});
+		}
+
 		return {
 			statusCode: 200,
 			body: JSON.stringify({
