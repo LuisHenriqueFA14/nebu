@@ -26,20 +26,22 @@ class SearchProjectService {
 			take: 15,
 		});
 
-		results.map((project) => {
-			return {
+		let projects = [];
+
+		results.forEach((project) => {
+			projects.push({
 				path: project.path,
 				title: project.title,
 				description: project.description,
 				id: project.id
-			}
+			});
 		});
 
 		return {
 			statusCode: 200,
 			body: JSON.stringify({
 				message: "Search ran successfully.",
-				projects: results,
+				projects,
 			})
 		};
 	}

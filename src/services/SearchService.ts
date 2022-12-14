@@ -12,20 +12,22 @@ class SearchService {
 			take: 10,
 		});
 
-		results.map((user) => {
-			return {
+		let users = [];
+
+		results.forEach((user) => {
+			users.push({
 				id: user.id,
 				name: user.name,
 				username: user.username,
 				picture: user.picture,
-			}
-		})
+			});
+		});
 
 		return {
 			statusCode: 200,
 			body: JSON.stringify({
 				message: "Search ran successfully.",
-				users: results,
+				users,
 			})
 		};
 	}
