@@ -1,7 +1,7 @@
 import { prisma } from "../prisma/prismaClient";
 import { createError } from "../utils/createError";
 
-class InfoProjectService {
+class ProjectInfoService {
 	async execute({ id, path }) {
 		let where = {};
 
@@ -38,4 +38,4 @@ class InfoProjectService {
 	}
 }
 
-export { InfoProjectService };
+export { ProjectInfoService };

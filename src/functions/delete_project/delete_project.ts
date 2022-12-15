@@ -1,6 +1,6 @@
 import { DeleteProjectService } from '../../services/DeleteProjectService';
 
-const handler = async (event) => {
+const handler = async (event: any) => {
 	const { id, password } = JSON.parse(event.body);
 	const token = event.headers.authorization;
 

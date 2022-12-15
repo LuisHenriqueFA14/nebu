@@ -3,7 +3,7 @@ import { prisma } from "../prisma/prismaClient";
 import { createError } from "../utils/createError";
 import { getIdFromToken } from "../utils/getIdFromToken";
 
-class ChangePasswordService {
+class UpdatePasswordService {
 	async execute({ oldPassword, newPassword }, token: string) {
 		const id = getIdFromToken(token);
 
@@ -33,7 +33,7 @@ class ChangePasswordService {
 
 		const hashedPassword = await hash(newPassword, 8);
 
-		const alteration = await prisma.user.update({
+		await prisma.user.update({
 			where: {
 				id,
 			},
@@ -51,4 +51,4 @@ class ChangePasswordService {
 	}
 }
 
-export { ChangePasswordService };
+export { UpdatePasswordService };

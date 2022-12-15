@@ -1,4 +1,4 @@
-import { ChangePasswordService } from "../../services/ChangePasswordService";
+import { UpdatePasswordService } from "../../services/UpdatePasswordService";
 
 const handler = async (event: any) => {
 	const { oldPassword, newPassword } = JSON.parse(event.body);
@@ -22,9 +22,9 @@ const handler = async (event: any) => {
 		}
 	}
 
-	const changePasswordService = new ChangePasswordService();
+	const updatePasswordService = new UpdatePasswordService();
 
-	return await changePasswordService.execute({ oldPassword, newPassword }, token);
+	return await updatePasswordService.execute({ oldPassword, newPassword }, token);
 }
 
 export { handler };

@@ -1,6 +1,6 @@
 import { SearchService } from "../../services/SearchService";
 
-const handler = async (event) => {
+const handler = async (event: any) => {
 	const { username } = JSON.parse(event.body);
 
 	if(!username) {
@@ -14,7 +14,7 @@ const handler = async (event) => {
 
 	const searchService = new SearchService();
 
-	return searchService.execute(username);
+	return searchService.execute({ username });
 }
 
 export { handler };

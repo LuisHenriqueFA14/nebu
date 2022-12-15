@@ -1,4 +1,4 @@
-import { ChangeService } from "../../services/ChangeService";
+import { UpdateService } from "../../services/UpdateService";
 
 const handler = async (event: any) => {
 	const { username, accounts, picture } = JSON.parse(event.body);
@@ -13,9 +13,9 @@ const handler = async (event: any) => {
 		}
 	}
 
-	const changeService = new ChangeService();
+	const updateService = new UpdateService();
 
-	return await changeService.execute({ username, accounts, picture }, token);
+	return await updateService.execute({ username, accounts, picture }, token);
 }
 
 export { handler };

@@ -1,7 +1,7 @@
 import {prisma} from "../prisma/prismaClient";
 
 class SearchService {
-	async execute(username: string) {
+	async execute({ username }) {
 		const results = await prisma.user.findMany({
 			where: {
 				username: {

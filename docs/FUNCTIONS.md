@@ -7,14 +7,14 @@ This will explain the details about each serverless function and how to use it.
 - Users
 	- [Cadaster](#cadaster)
 	- [Login](#login)
-	- [Change](#change)
-	- [Change Password](#change_password)
+	- [Update](#update)
+	- [Update Password](#update_project)
 	- [Info](#info)
 	- [Search](#search)
 - Projects
 	- [Create](#create)
-	- [Change Project](#change_project)
-	- [Info Project](#info_project)
+	- [Update Project](#update_project)
+	- [Project Info](#project_info)
 	- [Search Project](#search_project)
 	- [Delete Project](#delete_project)
 
@@ -64,9 +64,9 @@ Output:
 }
 ```
 
-## `change`  
+## `update`  
 
-This function must allow changing the `username`, `accounts` and `picture`.
+This function must allow updating the `username`, `accounts` and `picture`.
 
 Require: `Bearer token`
 
@@ -88,9 +88,9 @@ Output:
 }
 ```
 
-## `change_password`  
+## `update_password`  
 
-This function should make it possible to change the `password`.
+This function should make it possible to update the `password`.
 
 Require: `Bearer token`
 
@@ -193,7 +193,7 @@ Output:
 }
 ```
 
-## `change_project`  
+## `update_project`  
 
 This function should make it possible to change some project information, such as `title`, `description`, `platform`, `link` and `tags`.
 
@@ -220,7 +220,7 @@ Output:
 }
 ```
 
-## `info_project`  
+## `project_info`  
 
 This function takes the `username/title` (path) or `id` of a project and returns its information.
 

@@ -37,16 +37,16 @@ And the functions are:
 
 - `cadaster`
 - `login`
-- `change`
-- `change_password`
+- `update`
+- `update_password`
 - `info`
 - `search`
 
 ### Projects:
 
 - `create`
-- `change_project`
-- `info_project`
+- `update_project`
+- `project_info`
 - `search_project`
 - `delete_project`
 

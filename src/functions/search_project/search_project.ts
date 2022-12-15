@@ -6,7 +6,7 @@ interface IProject {
 	platform?: string;
 }
 
-const handler = async (event) => {
+const handler = async (event: any) => {
 	const project: IProject = JSON.parse(event.body);
 
 	const searchProjectService = new SearchProjectService();

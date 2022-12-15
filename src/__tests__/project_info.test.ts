@@ -1,31 +1,31 @@
 import { handler as cadasterFunction } from "../functions/cadaster/cadaster";
 import { handler as loginFunction } from "../functions/login/login";
 import { handler as createFunction } from "../functions/create/create";
-import { handler as infoProjectFunction } from "../functions/info_project/info_project";
+import { handler as projectInfoFunction } from "../functions/project_info/project_info";
 
-describe('Info_project function', () => {
+describe('Project_info function', () => {
 	beforeAll(async () => {
 		await cadasterFunction({
 			body: JSON.stringify({
-				username: "info_project",
-				name: "Info Project",
-				email: "info_project@gmail.com",
+				username: "project_info",
+				name: "Project Info",
+				email: "project_info@gmail.com",
 				password: "abc123"
 			})
 		});
 
 		const token = JSON.parse((await loginFunction({
 			body: JSON.stringify({
-				username: "info_project",
+				username: "project_info",
 				password: "abc123",
 			})
 		})).body).token;
 
 		await createFunction({
 			body: JSON.stringify({
-				title: "Info_Project",
+				title: "Project_Info",
 				platform: "GitHub",
-				link: "https://github.com/info_project/Info_Project"
+				link: "https://github.com/project_info/project_info"
 			}),
 			headers: {
 				authorization: `Bearer ${token}`
@@ -34,7 +34,7 @@ describe('Info_project function', () => {
 	});
 
 	it('should not be able to get info of a project without path or id', async () => {
-		const response = await infoProjectFunction({
+		const response = await projectInfoFunction({
 			body: JSON.stringify({}),
 		});
 
@@ -42,7 +42,7 @@ describe('Info_project function', () => {
 	});
 
 	it('should not be able to get info of a project with an invalid path', async () => {
-		const response = await infoProjectFunction({
+		const response = await projectInfoFunction({
 			body: JSON.stringify({
 				path: 'randomuser/doesnotexist'
 			}),
@@ -52,7 +52,7 @@ describe('Info_project function', () => {
 	});
 
 	it('should not be able to get info of a project with an invalid id', async () => {
-		const response = await infoProjectFunction({
+		const response = await projectInfoFunction({
 			body: JSON.stringify({
 				id: 'doesnotexist'
 			}),
@@ -62,9 +62,9 @@ describe('Info_project function', () => {
 	});
 
 	it('should be able to get info of a project', async () => {
-		const response = await infoProjectFunction({
+		const response = await projectInfoFunction({
 			body: JSON.stringify({
-				path: 'info_project/Info_Project'
+				path: 'project_info/Project_Info'
 			}),
 		});
 

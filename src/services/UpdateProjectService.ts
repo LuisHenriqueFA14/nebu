@@ -11,7 +11,7 @@ interface ProjectAlterations {
 	tags?: string[];
 }
 
-class ChangeProjectService {
+class UpdateProjectService {
 	async execute(project_alterations: ProjectAlterations, token: string) {
 		const id = getIdFromToken(token);
 
@@ -84,4 +84,4 @@ class ChangeProjectService {
 	}
 }
 
-export { ChangeProjectService };
+export { UpdateProjectService };

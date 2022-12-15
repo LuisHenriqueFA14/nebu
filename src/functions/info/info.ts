@@ -1,6 +1,6 @@
 import { InfoService } from "../../services/InfoService";
 
-const handler = async (event) => {
+const handler = async (event: any) => {
 	const { id, username } = JSON.parse(event.body);
 
 	if(!id && !username) {

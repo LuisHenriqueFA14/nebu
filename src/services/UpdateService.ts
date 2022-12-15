@@ -8,7 +8,7 @@ interface UserAlterations {
 	picture?:  string;
 }
 
-class ChangeService {
+class UpdateService {
 	async execute(user_alterations: UserAlterations, token: string) {
 		if(user_alterations.username) {
 			const usernameAlreadyInUse = await prisma.user.findUnique({
@@ -79,4 +79,4 @@ class ChangeService {
 	}
 }
 
-export { ChangeService };
+export { UpdateService };
